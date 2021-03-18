@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-3 col-md-3">
+      <h4>Welcome to Test App</h4>
+      <img src="https://placeimg.com/640/480/tech" alt="" />
+      <mcf-input
+        [placeholder]="'Please Type ABCD'"
+        [value]="myNameValue1"
+        [messages]="myABCD"
+        [label]="'Text containing ABCD'"
+        [customValidationRule]="customValidationRegex"
+      ></mcf-input>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <h4>Add Your details</h4>
+      <form>
+        <mcf-input
+          [messages]="myFormNameMsg"
+          [required]="true"
+          [placeholder]="'Please enter your name'"
+          [value]="name"
+          [datatype]="'user'"
+          [id]="'FieldOne'"
+          [label]="'Name'"
+          (onChange)="FieldOneOnChange($event)"
+        ></mcf-input>
+  
+        <mcf-input
+          [messages]="myFormNationalityMsg"
+          [required]="true"
+          [placeholder]="'Please enter your Nationality'"
+          [value]="nationality"
+          [datatype]="'user'"
+          [id]="'FieldTwo'"
+          [label]="'Nationality'"
+          (onChange)="FieldTwoOnChange($event)"
+        ></mcf-input>
+  
+        <mcf-input
+          [messages]="myFormMobileNumberMsg"
+          [required]="true"
+          [placeholder]="'Please Mobile Number'"
+          [value]="mobile"
+          [datatype]="'user'"
+          [inputtype]="'number'"
+          [id]="'FieldThree'"
+          [label]="'Mobile Number'"
+          (onChange)="FieldThreeOnChange($event)"
+        ></mcf-input>
+  
+        <mcf-button
+          label="Validated on Submit"
+          id="mySubmitButton"
+          primary="true"
+          ajaxenabled="true"
+          type="submit"
+          (click)="onSubmit()"
+          [targetfields]="myTargetFields"
+          mcfclass="-state-secondary -button-full"
+        ></mcf-button>
+      </form>
+    </div>
+  
+    <div class="col-xs-12 col-sm-3 ">
+      <h4>Side banner area</h4>
+      <img src="https://placeimg.com/640/1000/arch/grayscale" alt="" />
+    </div>
+  </div>

@@ -1,0 +1,191 @@
+<div style="background-color:#eeeded;">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-3 col-md-3">
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6" style="background-color: white;" >
+        <Br>
+        <div class="Headersec" >
+                    <span class="color-White " >Search & Track</span><br>
+                    <div class="row">
+                        <div class="col-md-3"><mcf-select
+                            [items]="SearchDataList"
+                            [bindLabel]="'name'"
+                            [bindValue]="'id'"
+                            [(ngModel)]='value'
+                         
+                        ></mcf-select></div>
+                        <div class="col-md-6 col-sm-3"><mcf-input
+                            [messages]="SearchTextError"
+                            [required]="true"
+                            [placeholder]="'Enter Search Text'"
+                            [value]="SearchText"
+                            [datatype]="'user'"
+                            [id]="'TxtSearchText'"
+                            (onChange)="FieldOneOnChange($event)"
+                            ></mcf-input></div>
+                            <mcf-button mcfclass="-state-secondary" 
+                            label="Search"
+                            (click)="onButtonClick($event)"></mcf-button>
+                </div>
+        </div>
+        <br>
+    <form  [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <mcf-input
+                [messages]="OriginErrorMsg"
+                [required]="true"
+                [placeholder]="'Please enter Origin'"
+                [value]="Origin"
+                [datatype]="'user'"
+                [id]="'Origin'"
+                [label]="'Origin'"
+                formControlName="Origin"
+              ></mcf-input>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <mcf-input
+                [messages]="DestinationErrorMsg"
+                [required]="true"
+                [placeholder]="'Please enter Destination'"
+                [value]="Destination"
+                [datatype]="'user'"
+                [id]="'Destination'"
+                [label]="'Destination'"
+                formControlName="Destination"
+              ></mcf-input>
+            </div>
+            <div class="col-md-3 col-xs-4">
+              <mcf-input
+              [value]="'Ship By'"
+              [datatype]="'user'"
+              [id]="'ShipByLbl'"
+              [label]="'Date'"
+              [disabled]="true"
+            ></mcf-input>
+            </div>
+            <div class="col-md-6 col-xs-8">
+             <div style="padding:1.3rem;"></div>
+                <mcf-datetime [options]="myOptions04"
+                [enableCopyButton]="false"
+                [enableClearButton]="false"
+                [icon]='"acf_icon_date_picker"'
+                [value]="ShipDate"
+                id="ShipDate"
+                placeholder="Please select date"
+                [messages]="ShipDateErrorMsg"
+                [required]="true"
+                formControlName="ShipDate"
+                >
+                </mcf-datetime>
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <mcf-input
+              [messages]="GoodsDescriptionErrorMsg"
+              [required]="true"
+              [placeholder]="'Please enter Goods Description'"
+              [value]="name"
+              [datatype]="'user'"
+              [id]="'GoodsDescription'"
+              [label]="'Goods Description'"
+              formControlName="GoodsDescription"
+            ></mcf-input>
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <mcf-input
+              [messages]="CommodityCodeErrorMsg"
+              [required]="true"
+              [placeholder]="'Please enter Commodity Code'"
+              [value]="name"
+              [datatype]="'user'"
+              [id]="'CommodityCode'"
+              [label]="'Commodity Code'"
+              formControlName="CommodityCode"
+            ></mcf-input>
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <div style="padding-top:11px;" ></div>
+              <mcf-input
+              [messages]="PiecisErrorMsg"
+              [required]="true"
+              [placeholder]="'Please enter Piecis'"
+              [value]="name"
+              [datatype]="'user'"
+              [id]="'Piecis'"
+              [label]="'Piecis'"
+              formControlName="Piecis"
+            ></mcf-input>
+            </div>
+            <div class="col-md-4 col-xs-12" >
+              <mcf-value-selector
+              [config]="weightvalueConfig"
+              >
+              </mcf-value-selector>
+            
+                   <!--   [multiCustomValidationRules]="myValidation"
+              [config]="weightvalueConfig"
+                -->
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <mcf-value-selector
+              [config]="VolumevalueConfig"
+              >
+
+              </mcf-value-selector>
+                 <!-- [multiCustomValidationRules]="myValidation"
+              [config]="VolumevalueConfig"
+                -->
+              
+            </div>
+            <div class="col-md-12 col-xs-12">
+              <div class="padding-bottom-2">  Special Headling Code (optional)</div>
+              <mcf-select [items]="airlines"
+              [bindLabel]="'name'"
+              [multiple]="true"
+              [(ngModel)]="specialHeadlingCode"
+              id="specialHeadlingCode"
+              formControlName="specialHeadlingCode"
+              >
+              
+              </mcf-select>
+  
+            </div>
+            <div class="col-md-12 col-xs-12">
+              <div class="padding-bottom-2" >  Product</div>
+              <mcf-select
+              [items]="Product"
+              [bindLabel]="'name'"
+              [bindValue]="'id'"
+              [(ngModel)]='Product_SeletedData'
+              id="Product"
+              formControlName="Product"
+              ></mcf-select>
+            </div>
+            <div class="padding20 col-md-12" >
+                <span> To add Other Details </span><br>
+                <span><a href="" >Continue to Detailed Enquiry</a></span>
+            </div>
+            <div class="col-md-12 padding20 backgroudColour-Blue "  >
+              <div class="row end-xs">
+                <div class="col-xs-3">
+                    <div class="box">
+                      <mcf-button 
+                      mcfclass="-state-secondary" 
+                      label="show offers"
+                      ajaxenabled='true'
+                      type='submit'
+                      (click)="onSubmit()"
+                      ></mcf-button>
+                    </div>
+                      <!-- [targetfields]="reactiveTargetFields" -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>
+    <div class="col-xs-12 col-sm-3">
+      
+    </div>
+  </div>
+</div>

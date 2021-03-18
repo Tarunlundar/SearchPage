@@ -1,0 +1,90 @@
+<!-- <p>search-page works!</p> -->
+<div class="row">
+    <div class="col-md-3">
+       
+    </div>
+    <div class="col-md-6">
+        <div>
+            Search Page
+        </div>
+        
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-6" ><mcf-input
+            [messages]="myFormNameMsg"
+            [required]="true"
+            [placeholder]="'Please enter your name'"
+            [datatype]="'user'"
+            [id]="'ReactiveFieldOne'"
+            [label]="'Name'"
+            formControlName="name"
+          ></mcf-input></div>
+        <div class="col-md-6"><mcf-input
+            [messages]="myFormNationalityMsg"
+            [required]="true"
+            [placeholder]="'Please enter your Nationality'"
+            [datatype]="'user'"
+            [id]="'ReactiveFieldTwo'"
+            [label]="'Nationality'"
+            formControlName="nationality"
+          ></mcf-input></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+             
+    <mcf-input
+    [messages]="myFormMobileNumberMsg"
+    [required]="true"
+    [placeholder]="'Please Mobile Number'"
+    [datatype]="'user'"
+    [inputtype]="'number'"
+    [maxlength]="12"
+    [id]="'ReactiveFieldThree'"
+    [label]="'Mobile Number'"
+    (onChange)="onMobileNumberChange($event)"
+    formControlName="mobileNumber"
+  ></mcf-input>
+        </div>
+        <div class="col-md-6">
+            <mcf-datetime [options]="myOptions04"
+            [label]="'Date'"
+            [enableCopyButton]="false"
+            [required]="true"
+            [enableClearButton]="true"
+            [icon]='"acf_icon_date_picker"'
+            [value]="mySetDateId04"
+            id="Seleteddate"
+            formControlName="Seleteddate"
+            placeholder="Please select date">
+        </mcf-datetime>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <mcf-button
+            label="Validated on Submit"
+            id="mySubmitButton"
+            primary="true"
+            ajaxenabled='true'
+            type='submit'
+            (click)="onSubmit()"
+            [targetfields]="reactiveTargetFields"
+            mcfclass="-state-secondary -button-full"
+        ></mcf-button></div>
+        <div class="col-md-2 ">
+            <mcf-button
+            label="Reset"
+            type="reset"
+            [targetfields]="reactiveTargetFields"
+            (click)="resetReactiveForm()"
+            mcfclass="-state-secondary -button-full"
+          ></mcf-button>
+        </div>
+    </div>
+  </form>
+  
+    </div>
+    <div class="col-md-3">
+       
+    </div>
+</div>

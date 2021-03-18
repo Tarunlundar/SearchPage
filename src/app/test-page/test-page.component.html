@@ -1,0 +1,50 @@
+<mcf-header></mcf-header>
+<div class="row">
+    <div class="col-xs-12 col-sm-3 col-md-3"></div>
+    <div class="col-xs-12 col-sm-3 col-md-6 ">
+        <h4>Test-page works!</h4>
+        <div class="row ">   
+            <div class="col-xs-12 col-sm-3 col-md-6 ">
+            <mcf-input
+            [messages]="FirstNameError"
+            [required]="true"
+            [placeholder]="'Please enter your first name'"
+            [value]="FirstName"
+            [datatype]="'user'"
+            [id]="'FirstName'"
+            [label]="'First Name'"
+            (onChange)="FirstNameOnChange($event)"
+            ></mcf-input>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-6 ">
+            <mcf-input
+            [messages]="LastNameError"
+            [required]="true"
+            [placeholder]="'Please enter Last Name'"
+            [value]="LastName"
+            [datatype]="'user'"
+            [id]="'LastName'"
+            [label]="'Last Name'"
+            (onChange)="LastNameOnChange($event)"
+            ></mcf-input>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <mcf-button
+        label="Validated on Submit"
+        id="mySubmitButton"
+        primary="true"
+        type="submit"
+        (click)="onSubmit()"
+        [targetfields]="myTargetFields"
+        mcfclass="-state-secondary -button-full"
+      ></mcf-button>
+
+
+    </div>
+
+    
+</div>
+</div>
+</div>
